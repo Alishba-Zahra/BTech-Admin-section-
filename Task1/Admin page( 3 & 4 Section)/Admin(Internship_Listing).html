@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Listings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+          }
+        body {
+            background: #f3f4f6; 
+             }
+        .header, .sidebar, .table-container { 
+            background: white; 
+                }
+        .header {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 16px; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+               }     
+
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            font-size: 20px; 
+            font-weight: bold; 
+             }
+        .logo img { 
+            height: 32px; 
+            margin-right: 10px; 
+               }
+        .user-info { 
+            display: flex; 
+            align-items: center; 
+               }
+        .user-info img { 
+            border-radius: 50%; 
+            height: 40px; 
+            width: 40px; 
+            margin: 0 8px; 
+               }
+        .container { 
+            display: flex; 
+            height: calc(10
+                0vh - 64px); 
+            flex-wrap: nowrap; 
+               }
+        .sidebar {
+            width: 240px;
+             box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar nav a {
+            display: flex; 
+            align-items: center; 
+            padding: 16px; 
+            color: #4a5568;
+            text-decoration: none; 
+            transition: background 0.3s;
+              }
+        .sidebar nav a:hover, .sidebar nav a.active { 
+            background: #edf2f7;
+              }
+        .sidebar nav a i { 
+            margin-right: 12px; 
+             }
+        .main-content { 
+            flex: 1; 
+            padding: 24px; 
+            overflow-y: auto; 
+             }
+        .search-bar { position: relative; 
+            max-width: 400px; 
+            margin-left: auto; 
+            margin-bottom: 16px; 
+             }
+        .search-bar input {
+            width: 100%;
+             padding: 12px 16px 12px 40px;
+
+            border: 1px solid #cbd5e0; 
+            border-radius: 8px;
+              }
+
+        .search-bar i { position: absolute; 
+            left: 12px; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            color: #a0aec0; }
+        .table-container { box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+            border-radius: 8px; 
+            overflow: hidden; 
+            }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            }
+        thead { 
+            background: #edf2f7; 
+              }
+
+        th, td {
+         padding: 12px 16px; 
+         text-align: left; 
+             }
+        .status-approved {
+         color: #48bb78; 
+            }
+        .status-pending { 
+            color: #ecc94b;
+         }
+        .status-rejected { 
+            color: #f56565; 
+           }
+        .details-button {
+            background: #4299e1; 
+            color: white;
+            padding: 8px 16px; 
+            border: none; b
+            order-radius: 4px;
+            cursor: pointer;
+        }
+        .details-button:hover { 
+            background: #3182ce; 
+    }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }                       
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; 
+                height: auto; 
+            }
+            .sidebar {
+                width: 100%; 
+                box-shadow: none; 
+            }
+            .main-content {
+                padding: 16px; 
+            }
+            .search-bar {
+                max-width: 100%; 
+                margin: 16px 0; }
+            .table-container {
+                overflow-x: auto; 
+            }
+            table {
+                min-width: 600px; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                flex-direction: column; 
+                align-items: flex-start; 
+            }
+            .user-info {
+                margin-top: 8px; 
+            }
+            .sidebar nav a {
+                padding: 12px; 
+            }
+            th, td {
+                padding: 8px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img style="width: 45px;height: 40px;" src="Logo.jpg" alt="CareerBridge Logo"> CareerBridge
+        </div>
+        <div class="user-info">
+            <i class="fas fa-bell"></i>
+            <img style="width: 35px;height: 35px;" src="Profile.jpg" alt="User  Avatar">
+            <span>Michelle Johnson</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <nav>
+                <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="#Internship Listing.html"><i class="fas fa-user-graduate"></i> Manage Students</a>
+                <a class="active" href="#"><i class="fas fa-clipboard-list"></i> Internship Listings</a>
+                <a href="#"><i class="fas fa-chart-bar"></i> Reports</a>
+                <a href="#"><i class="fas fa-user"></i> Profile</a>
+                <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+            </nav>
+        </div>
+
+        <div class="main-content">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search company">
+            </div>
+
+            <div class="table-container">
+                <table id="internshipTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Student Name</th>
+                            <th>Company Name</th>
+                            <th>Internship Title</th>
+                            <th>Job Type</th>
+                            <th>Duration</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Ali Raza</td>
+                            <td>Microsoft</td>
+                            <td>Web Developer</td>
+                            <td>Online</td>
+                            <td>3 months</td>
+                            <td class="status-approved">Approved</td>
+                            <td><button class="details-button">Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Faiza</td>
+                            <td>Google</td>
+                            <td>IT Support</td>
+                            <td>On-site</td>
+                            <td>2 months</td>
+                            <td class="status-pending">Pending</td>
+                            <td><button class="details-button">Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Ali Raza</td>
+                            <td>Microsoft</td>
+                            <td>Web Developer</td>
+                            <td>Hybrid</td>
+                            <td>3 months</td>
+                            <td class="status-rejected">Rejected</td>
+                            <td><button class="details-button">Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Ali Raza</td>
+                            <td>Microsoft</td>
+                            <td>Web Developer</td>
+                            <td>Online</td>
+                            <td>3 months</td>
+                            <td class="status-pending">Pending</td>
+                            <td><button class="details-button">Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Ali Raza</td>
+                            <td>Microsoft</td>
+                            <td>Web Developer</td>
+                            <td>Online</td>
+                            <td>3 months</td>
+                            <td class ="status-approved">Approved</td>
+                            <td><button class="details-button">Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Ali Raza</td>
+                            <td>Microsoft</td>
+                            <td>Web Developer</td>
+                            <td>Onsite</td>
+                            <td>3 months</td>
+                            <td class="status-rejected">Rejected</td>
+                            <td><button class="details-button">Details</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("searchInput").addEventListener("input", function () {
+        let filter = this.value.trim().toLowerCase(); // Input value ko lowercase aur trim karein
+        let rows = document.querySelectorAll("#internshipTable tbody tr");
+
+        rows.forEach(row => {
+            let text = "";
+   
+            for (let i = 0; i < row.cells.length; i++) {
+                text += row.cells[i].textContent.trim().toLowerCase() + " ";
+            }
+            row.style.display = text.includes(filter) ? "" : "none";
+        });
+    });
+});
+
+
+        document.querySelectorAll(".details-button").forEach(button => {
+            button.addEventListener("click", function() {
+                alert("More details will be shown here!");
+            });
+        });
+    </script>
+</body>
+</html>
